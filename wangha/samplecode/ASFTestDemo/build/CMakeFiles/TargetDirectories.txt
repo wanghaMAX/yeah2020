@@ -1,0 +1,3 @@
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles/rebuild_cache.dir
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles/arcsoft_face_engine_test.dir
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles/edit_cache.dir

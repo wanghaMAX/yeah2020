@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././inc/amcomdef.h
+
+.././inc/arcsoft_face_sdk.h
+amcomdef.h
+.././inc/amcomdef.h
+asvloffscreen.h
+.././inc/asvloffscreen.h
+
+.././inc/asvloffscreen.h
+amcomdef.h
+.././inc/amcomdef.h
+
+.././inc/merror.h
+
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/samplecode.cpp
+arcsoft_face_sdk.h
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/arcsoft_face_sdk.h
+amcomdef.h
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/amcomdef.h
+asvloffscreen.h
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/asvloffscreen.h
+merror.h
+/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/merror.h
+iostream
+-
+string
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+

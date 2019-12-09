@@ -1,0 +1,61 @@
+﻿////////////////////////////////////////////////////////////////////////////////
+//                   		ArcSoft Face Library 		      	              //        
+////////////////////////////////////////// /////////////////////////////////////
+
+Introduction:
+ArcSoft Face Library provides the universal interfaces to detect different face feature.
+
+Publish date:
+06/20/2019
+
+Expire date：
+12/02/2020
+
+Version:
+2.2.12402010101.3
+
+Supported platform:
+linux_x64
+
+Compile Options:
+default
+
+Dependency:
+none
+
+Known issues:
+None.
+
+File List:
+|---doc
+|   |---ARCSOFT_ARC_FACE_DEVELOPER'S_GUIDE.pdf   		开发说明文档
+|---inc
+|   |---amcomdef.h                  					平台文件
+|   |---asvloffscreen.h                                	平台文件
+|   |---arcsoft_face_sdk.h                             	接口文件
+|   |---merror.h                                       	错误码文件
+|---lib
+|   |---linux_x64
+|   |   |---libarcsoft_face.so             				算法库
+|   |   |---libarcsoft_face_engine.so            		引擎库 
+|---samplecode
+|   |---ASFTestDemo                                 	示例Demo
+|   |---ReadMe.txt                                     	Demo使用说明
+|---releasenotes.txt                                    说明文件
+
+
+Change Logs:
+Initial Version
+
+2019/03/08
+1.更新算法库、copyright；
+
+2019/06/20
+1.更新RGB活体算法库;
+2.添加IR活体检测；
+3.更新人脸检测算法库；
+4.IMAGE模式下仅支持传入单一角度，不再支持全角度检测；
+5.IMAGE模式下scale开放的范围为[2,32]，推荐值为30；
+6.VIDEO模式下scale开放的范围从[2,16]修改为[2,32]，推荐值为16；
+7.VIDEO模式下开放FaceId参数，用于追踪是否为同一张人脸，IMAGE模式下未开放；
+8.更新激活方案；
