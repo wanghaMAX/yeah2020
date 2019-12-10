@@ -18,8 +18,17 @@
 #define NSCALE 15 
 #define FACENUM	1
 
+void GetWidthHeight(FILE *fp, int * width, int *height){
+    fseek(fp, 18L, SEEK_SET);
+    fread(width, sizeof(char), 4, fp);
+    fseek(fp, 22L, SEEK_SET);
+    fread(height, sizeof(char), 4, fp);
+}
+
 int main()
 {
+    //get the width and height of picture. 
+    unsigned int OffSet = 0;
 	//激活SDK
 	MRESULT res = ASFOnlineActivation(APPID, SDKKEY);
 	if (MOK != res && MERR_ASF_ALREADY_ACTIVATED != res)
@@ -37,26 +46,30 @@ int main()
 		printf("ALInitEngine sucess: %d\n", res);
 	
 	char* picPath1 = "./hahaha.bmp";
-	int Width1 = 640;
-	int Height1 = 480;
+    
+	int Width1 = 0;
+	int Height1 = 0;
 	int Format1 = ASVL_PAF_RGB24_B8G8R8;	//图像数据为RGB24颜色格式
-	MUInt8* imageData1 = (MUInt8*)malloc(Height1*Width1*3);
 	FILE* fp1 = fopen(picPath1, "rb");
+    GetWidthHeight(fp1, &Width1, &Height1);
+	MUInt8* imageData1 = (MUInt8*)malloc(Height1*Width1*3);
 	
 	char* picPath2 = "./hahaha.bmp";
-	int Width2 = 640;
-	int Height2 = 480;
+	int Width2 = 0;
+	int Height2 = 0;
 	int Format2 = ASVL_PAF_RGB24_B8G8R8;	//图像数据为RGB24颜色格式
-	MUInt8* imageData2 = (MUInt8*)malloc(Height2*Width2*3);
 	FILE* fp2 = fopen(picPath2, "rb");
-	
+	GetWidthHeight(fp2, &Width2, &Height2);
+	MUInt8* imageData2 = (MUInt8*)malloc(Height2*Width2*3);
+
 	char* picPath3 = "./hahaha.bmp";
-	int Width3 = 640;
-	int Height3 = 480;
+	int Width3 = 0;
+	int Height3 = 0;
 	int Format3 = ASVL_PAF_GRAY;	//用于红外活体检测
 //只读NV21前2/3的数据为灰度数据
-	MUInt8* imageData3 = (MUInt8*)malloc(Height2*Width2);	
 	FILE* fp3 = fopen(picPath3, "rb");
+	GetWidthHeight(fp3, &Width3, &Height3);
+	MUInt8* imageData3 = (MUInt8*)malloc(Height2*Width2);	
 
 	if (fp1 && fp2 && fp3)
 	{
@@ -83,6 +96,9 @@ int main()
 			SingleDetectedFaces.faceRect.right = detectedFaces1.faceRect[0].right;
 			SingleDetectedFaces.faceRect.bottom = detectedFaces1.faceRect[0].bottom;
 			SingleDetectedFaces.faceOrient = detectedFaces1.faceOrient[0];
+            printf("left:%d, top:%d, right:%d, bottom:%d. \n",
+                    SingleDetectedFaces.faceRect.left, SingleDetectedFaces.faceRect.top, 
+                    SingleDetectedFaces.faceRect.right, SingleDetectedFaces.faceRect.bottom);
 		}
 		
 		// 单人脸特征提取
@@ -214,6 +230,7 @@ int main()
 		
 		//获取版本信息
 		const ASF_VERSION* pVersionInfo = ASFGetVersion(handle);
+        printf("versioninfo: %s\n", pVersionInfo->Version);
 
 		//反初始化
 		res = ASFUninitEngine(handle);
