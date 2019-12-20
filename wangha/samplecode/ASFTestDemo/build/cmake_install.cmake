@@ -1,4 +1,4 @@
-# Install script for directory: /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo
+# Install script for directory: /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

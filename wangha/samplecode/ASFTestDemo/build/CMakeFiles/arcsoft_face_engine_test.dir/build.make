@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo
+CMAKE_SOURCE_DIR = /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build
+CMAKE_BINARY_DIR = /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/arcsoft_face_engine_test.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/arcsoft_face_engine_test.dir/flags.make
 
 CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o: CMakeFiles/arcsoft_face_engine_test.dir/flags.make
 CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o: ../samplecode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o -c /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/samplecode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o -c /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/samplecode.cpp
 
 CMakeFiles/arcsoft_face_engine_test.dir/samplecode.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/arcsoft_face_engine_test.dir/samplecode.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/samplecode.cpp > CMakeFiles/arcsoft_face_engine_test.dir/samplecode.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/samplecode.cpp > CMakeFiles/arcsoft_face_engine_test.dir/samplecode.i
 
 CMakeFiles/arcsoft_face_engine_test.dir/samplecode.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/arcsoft_face_engine_test.dir/samplecode.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/samplecode.cpp -o CMakeFiles/arcsoft_face_engine_test.dir/samplecode.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/samplecode.cpp -o CMakeFiles/arcsoft_face_engine_test.dir/samplecode.s
 
 CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o.requires:
 
@@ -90,8 +90,25 @@ arcsoft_face_engine_test_EXTERNAL_OBJECTS =
 
 arcsoft_face_engine_test: CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o
 arcsoft_face_engine_test: CMakeFiles/arcsoft_face_engine_test.dir/build.make
+arcsoft_face_engine_test: /usr/local/lib/libopencv_dnn.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_highgui.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_ml.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_objdetect.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_shape.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_stitching.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_superres.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_videostab.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_calib3d.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_features2d.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_flann.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_photo.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_video.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_videoio.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_imgcodecs.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_imgproc.so.3.4.8
+arcsoft_face_engine_test: /usr/local/lib/libopencv_core.so.3.4.8
 arcsoft_face_engine_test: CMakeFiles/arcsoft_face_engine_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable arcsoft_face_engine_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable arcsoft_face_engine_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arcsoft_face_engine_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +125,6 @@ CMakeFiles/arcsoft_face_engine_test.dir/clean:
 .PHONY : CMakeFiles/arcsoft_face_engine_test.dir/clean
 
 CMakeFiles/arcsoft_face_engine_test.dir/depend:
-	cd /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles/arcsoft_face_engine_test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles/arcsoft_face_engine_test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/arcsoft_face_engine_test.dir/depend
 

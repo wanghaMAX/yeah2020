@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIE   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/. -I/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/./inc 
+CXX_INCLUDES = -I/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/. -I/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/./inc -isystem /usr/local/include -isystem /usr/local/include/opencv 
 

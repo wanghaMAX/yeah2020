@@ -7,6 +7,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+// extern
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/highgui.hpp>
 
 #define APPID "5RromRthBqpK9JCZBS7qJ31gAwKwRCgsAyRKAx86CTXQ"
 #define SDKKEY "7PaRMWiGmWJAjKejDHvRk6RgoykNJLmPGi1gSGawVucr"
@@ -18,11 +22,80 @@
 #define NSCALE 15 
 #define FACENUM	1
 
-void GetWidthHeight(FILE *fp, int * width, int *height){
-    fseek(fp, 18L, SEEK_SET);
-    fread(width, sizeof(char), 4, fp);
-    fseek(fp, 22L, SEEK_SET);
-    fread(height, sizeof(char), 4, fp);
+void Getsuffix(char * pixPath, char * suffix){
+    int len = 0, i = 0;
+    int mark = 0;
+    while(pixPath[len++] != '\0');
+    len = len - 1;
+    for(i=0; i<len; i++){
+        if(pixPath[i] == '.')
+            mark = i+1;
+    }
+    for(i=0; i<len-mark; i++){
+        suffix[i] = pixPath[i+mark];
+    }
+    suffix[i] = '\0';
+}
+
+void GetWidthHeight(char * picPath, int * width, int * height){
+    cv::Mat img = cv::imread(picPath);
+    *width = img.cols;
+    *height = img.rows;
+}
+
+/*
+void GetWidthHeight(char * picPath, FILE *fp, int * width, int *height){
+    char * suffix = (char*)malloc(sizeof(char)*10);
+    Getsuffix(picPath, suffix);
+    if(!strcmp("bmp", suffix)){
+        fseek(fp, 18L, SEEK_SET);
+        fread(width, sizeof(char), 4, fp);
+        fseek(fp, 22L, SEEK_SET);
+        fread(height, sizeof(char), 4, fp);
+    }else if(!strcmp("png", suffix)){
+        fseek(fp, 17L, SEEK_SET);
+        fread(width, sizeof(char), 4, fp);
+        fseek(fp, 21L, SEEK_SET);
+        fread(height, sizeof(char), 4, fp);
+    }else if(!strcmp("gif", suffix)){
+        fseek(fp, 6L, SEEK_SET);
+        fread(width, sizeof(char), 4, fp);
+        fseek(fp, 8L, SEEK_SET);
+        fread(height, sizeof(char), 4, fp);
+    }else if(!strcmp("jpg", suffix)){
+        fseek(fp, 164L, SEEK_SET);
+        fread(width, sizeof(char), 4, fp);
+        fseek(fp, 166L, SEEK_SET);
+        fread(height, sizeof(char), 4, fp);
+    }
+}
+*/
+
+void Drawline(cv::Mat img, cv::Point start, cv::Point end){
+    int thickness = 2;
+    int lineType = cv::LINE_8;
+    cv::line( img,
+        start,
+        end,
+        cv::Scalar( 0, 0, 0 ),
+        thickness,
+        lineType );
+}
+
+void Drawrectangle(cv::Mat img, int top, int bottom, int left, int right){
+    Drawline(img, cv::Point(left, top), cv::Point(right, top));
+    Drawline(img, cv::Point(left, bottom), cv::Point(right, bottom));
+    Drawline(img, cv::Point(left, top), cv::Point(left, bottom));
+    Drawline(img, cv::Point(right, top), cv::Point(right, bottom));
+}
+
+void Autocutpic(char * picPath, int width, int height){
+    cv::Mat img = cv::imread(picPath);
+    width = width - width%4;
+    height = height - height%4;
+    std::cout << width << " " << height ;
+    cv::Mat newimg = img(cv::Rect(0, 0, width, height));
+    cv::imwrite(picPath, newimg);
 }
 
 int main()
@@ -30,13 +103,15 @@ int main()
     //get the width and height of picture. 
     unsigned int OffSet = 0;
 	//激活SDK
-	MRESULT res = ASFOnlineActivation(APPID, SDKKEY);
+	/*
+    MRESULT res = ASFOnlineActivation(APPID, SDKKEY);
 	if (MOK != res && MERR_ASF_ALREADY_ACTIVATED != res)
 		printf("ASFOnlineActivation fail: %d\n", res);
 	else
 		printf("ASFOnlineActivation sucess: %d\n", res);
-
+    */
 	//初始化引擎
+    MRESULT res = { 0 };
 	MHandle handle = NULL;
 	MInt32 mask = ASF_FACE_DETECT | ASF_FACERECOGNITION | ASF_AGE | ASF_GENDER | ASF_FACE3DANGLE | ASF_LIVENESS | ASF_IR_LIVENESS;
 	res = ASFInitEngine(ASF_DETECT_MODE_IMAGE, ASF_OP_0_ONLY, NSCALE, FACENUM, mask, &handle);
@@ -45,31 +120,43 @@ int main()
 	else
 		printf("ALInitEngine sucess: %d\n", res);
 	
-	char* picPath1 = "./hahaha.bmp";
-    
-	int Width1 = 0;
-	int Height1 = 0;
+	char* picPath1 = "hahaha.png";
+	int Width1 = 0, Height1 = 0;
+    GetWidthHeight(picPath1, &Width1, &Height1);
+
+    if(Height1%4 != 0 || Width1%4 != 0){
+        Autocutpic(picPath1, Width1, Height1);
+        GetWidthHeight(picPath1, &Width1, &Height1);
+    }
+
 	int Format1 = ASVL_PAF_RGB24_B8G8R8;	//图像数据为RGB24颜色格式
 	FILE* fp1 = fopen(picPath1, "rb");
-    GetWidthHeight(fp1, &Width1, &Height1);
 	MUInt8* imageData1 = (MUInt8*)malloc(Height1*Width1*3);
 	
 	char* picPath2 = "./hahaha.bmp";
-	int Width2 = 0;
-	int Height2 = 0;
+	int Width2 = 0, Height2 = 0;
+    GetWidthHeight(picPath2, &Width2, &Height2);
+
+    if(Height2%4 != 0 || Width2%4 != 0){
+        Autocutpic(picPath2, Width2, Height2);
+        GetWidthHeight(picPath2, &Width2, &Height2);
+    }
+
 	int Format2 = ASVL_PAF_RGB24_B8G8R8;	//图像数据为RGB24颜色格式
 	FILE* fp2 = fopen(picPath2, "rb");
-	GetWidthHeight(fp2, &Width2, &Height2);
-	MUInt8* imageData2 = (MUInt8*)malloc(Height2*Width2*3);
+    MUInt8* imageData2 = (MUInt8*)malloc(Height2*Width2*3);
 
 	char* picPath3 = "./hahaha.bmp";
-	int Width3 = 0;
-	int Height3 = 0;
+	int Width3 = 0, Height3 = 0;
 	int Format3 = ASVL_PAF_GRAY;	//用于红外活体检测
 //只读NV21前2/3的数据为灰度数据
 	FILE* fp3 = fopen(picPath3, "rb");
-	GetWidthHeight(fp3, &Width3, &Height3);
-	MUInt8* imageData3 = (MUInt8*)malloc(Height2*Width2);	
+	GetWidthHeight(picPath3, &Width3, &Height3);
+    if(Height3%4 != 0 || Width3%4 != 0){
+        Autocutpic(picPath3, Width3, Height3);
+        GetWidthHeight(picPath3, &Width3, &Height3);
+    }
+    MUInt8* imageData3 = (MUInt8*)malloc(Height2*Width2);	
 
 	if (fp1 && fp2 && fp3)
 	{
@@ -99,6 +186,12 @@ int main()
             printf("left:%d, top:%d, right:%d, bottom:%d. \n",
                     SingleDetectedFaces.faceRect.left, SingleDetectedFaces.faceRect.top, 
                     SingleDetectedFaces.faceRect.right, SingleDetectedFaces.faceRect.bottom);
+            // out to file
+            if(SingleDetectedFaces.faceRect.top != 0 && SingleDetectedFaces.faceRect.bottom != 0){
+                cv::Mat mat = cv::imread(picPath1);
+                Drawrectangle(mat, SingleDetectedFaces.faceRect.top, SingleDetectedFaces.faceRect.bottom, SingleDetectedFaces.faceRect.left, SingleDetectedFaces.faceRect.right);
+                cv::imwrite("out.bmp", mat);
+            }
 		}
 		
 		// 单人脸特征提取

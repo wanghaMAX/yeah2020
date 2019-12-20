@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo
+CMAKE_SOURCE_DIR = /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build
+CMAKE_BINARY_DIR = /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/arcsoft_face_engine_test.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/sampleco
 CMakeFiles/arcsoft_face_engine_test.dir/all:
 	$(MAKE) -f CMakeFiles/arcsoft_face_engine_test.dir/build.make CMakeFiles/arcsoft_face_engine_test.dir/depend
 	$(MAKE) -f CMakeFiles/arcsoft_face_engine_test.dir/build.make CMakeFiles/arcsoft_face_engine_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles --progress-num=1,2 "Built target arcsoft_face_engine_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles --progress-num=1,2 "Built target arcsoft_face_engine_test"
 .PHONY : CMakeFiles/arcsoft_face_engine_test.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/arcsoft_face_engine_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arcsoft_face_engine_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arcsoft_face_engine_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles 0
 .PHONY : CMakeFiles/arcsoft_face_engine_test.dir/rule
 
 # Convenience name for target.

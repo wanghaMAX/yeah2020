@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/samplecode.cpp" "/home/wangha/download/ArcSoft_ArcFace_Linux_x64_V2.2/samplecode/ASFTestDemo/build/CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o"
+  "/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/samplecode.cpp" "/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles/arcsoft_face_engine_test.dir/samplecode.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -12,6 +12,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../."
   ".././inc"
+  "/usr/local/include"
+  "/usr/local/include/opencv"
   )
 
 # Targets to which this target links.
