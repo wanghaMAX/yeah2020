@@ -22,6 +22,20 @@
 #define NSCALE 15 
 #define FACENUM	1
 
+cv::Mat Autocompress(cv::Mat img){
+    int len = img.cols > img.rows ? img.cols : img.rows;
+    double rate = 800.0/len;
+    cv::Mat newimg;
+    cv::resize(img, newimg, cv::Size(), rate, rate);
+    return newimg;
+} 
+
+cv::Mat Autocompress(cv::Mat img, double rate1, double rate2){
+    cv::Mat newimg;
+    cv::resize(img, newimg, cv::Size(), rate1, rate2);
+    return newimg;
+}
+
 void Getsuffix(char * pixPath, char * suffix){
     int len = 0, i = 0;
     int mark = 0;
@@ -39,6 +53,11 @@ void Getsuffix(char * pixPath, char * suffix){
 
 void GetWidthHeight(char * picPath, int * width, int * height){
     cv::Mat img = cv::imread(picPath);
+    *width = img.cols;
+    *height = img.rows;
+}
+
+void GetWidthHeight(cv::Mat img, int * width, int * height){
     *width = img.cols;
     *height = img.rows;
 }
@@ -89,21 +108,20 @@ void Drawrectangle(cv::Mat img, int top, int bottom, int left, int right){
     Drawline(img, cv::Point(right, top), cv::Point(right, bottom));
 }
 
-void Autocutpic(char * picPath, int width, int height){
-    cv::Mat img = cv::imread(picPath);
+cv::Mat Autocutpic(cv::Mat img){
+    int width, height;
+    GetWidthHeight(img, &width, &height);
     width = width - width%4;
     height = height - height%4;
     std::cout << width << " " << height ;
     cv::Mat newimg = img(cv::Rect(0, 0, width, height));
-    cv::imwrite(picPath, newimg);
+    return newimg;
 }
 
 int main()
 {
-    //get the width and height of picture. 
     unsigned int OffSet = 0;
-	//激活SDK
-	/*
+	/* 激活SDK
     MRESULT res = ASFOnlineActivation(APPID, SDKKEY);
 	if (MOK != res && MERR_ASF_ALREADY_ACTIVATED != res)
 		printf("ASFOnlineActivation fail: %d\n", res);
@@ -120,42 +138,69 @@ int main()
 	else
 		printf("ALInitEngine sucess: %d\n", res);
 	
-	char* picPath1 = "hahaha.png";
+	char* picPath1 = "1.bmp";
+    cv::Mat img1 = cv::imread(picPath1);
 	int Width1 = 0, Height1 = 0;
-    GetWidthHeight(picPath1, &Width1, &Height1);
+    GetWidthHeight(img1, &Width1, &Height1);
 
+    cv::Mat img1_1;
+    if(Height1 > 800 || Width1 > 800){ // the pic is too large
+        img1_1 = Autocompress(img1);
+        GetWidthHeight(img1_1, &Width1, &Height1);
+    }
+
+    cv::Mat img1_2;
     if(Height1%4 != 0 || Width1%4 != 0){
-        Autocutpic(picPath1, Width1, Height1);
-        GetWidthHeight(picPath1, &Width1, &Height1);
+        img1_2 = Autocutpic(img1_1);
+        GetWidthHeight(img1_2, &Width1, &Height1);
+        cv::imwrite(picPath1, img1_2);
     }
 
 	int Format1 = ASVL_PAF_RGB24_B8G8R8;	//图像数据为RGB24颜色格式
 	FILE* fp1 = fopen(picPath1, "rb");
 	MUInt8* imageData1 = (MUInt8*)malloc(Height1*Width1*3);
 	
-	char* picPath2 = "./hahaha.bmp";
+	char* picPath2 = "1.bmp";
+    cv::Mat img2 = cv::imread(picPath2);
 	int Width2 = 0, Height2 = 0;
     GetWidthHeight(picPath2, &Width2, &Height2);
 
+    cv::Mat img2_1 = img2;
+    if(Height2 > 800 || Width2 > 800){
+        img2_1 = Autocompress(img2);
+        GetWidthHeight(img2, &Width2, &Height2);
+    }
+
+    cv::Mat img2_2;
     if(Height2%4 != 0 || Width2%4 != 0){
-        Autocutpic(picPath2, Width2, Height2);
-        GetWidthHeight(picPath2, &Width2, &Height2);
+        img2_2 = Autocutpic(img2_1);
+        GetWidthHeight(img2_2, &Width2, &Height2);
+        cv::imwrite(picPath2, img2_2);
     }
 
 	int Format2 = ASVL_PAF_RGB24_B8G8R8;	//图像数据为RGB24颜色格式
 	FILE* fp2 = fopen(picPath2, "rb");
     MUInt8* imageData2 = (MUInt8*)malloc(Height2*Width2*3);
 
-	char* picPath3 = "./hahaha.bmp";
+	char* picPath3 = "1.bmp";
 	int Width3 = 0, Height3 = 0;
 	int Format3 = ASVL_PAF_GRAY;	//用于红外活体检测
-//只读NV21前2/3的数据为灰度数据
-	FILE* fp3 = fopen(picPath3, "rb");
-	GetWidthHeight(picPath3, &Width3, &Height3);
-    if(Height3%4 != 0 || Width3%4 != 0){
-        Autocutpic(picPath3, Width3, Height3);
-        GetWidthHeight(picPath3, &Width3, &Height3);
+    cv::Mat img3 = cv::imread(picPath3);
+    GetWidthHeight(img3, &Width3, &Height3);
+
+    cv::Mat img3_1 = img3;
+    if(Height3 > 800 || Width3 > 800){
+        img3_1 = Autocompress(img3);
+        GetWidthHeight(img3, &Width3, &Height3);
     }
+
+    cv::Mat img3_2;
+    if(Height3%4 != 0 || Width3%4 != 0){
+        img3_2 = Autocutpic(img3_1);
+        GetWidthHeight(img3_2, &Width3, &Height3);
+    }
+    //只读NV21前2/3的数据为灰度数据
+    FILE* fp3 = fopen(picPath3, "rb");
     MUInt8* imageData3 = (MUInt8*)malloc(Height2*Width2);	
 
 	if (fp1 && fp2 && fp3)
