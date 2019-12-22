@@ -13,3 +13,9 @@
 
 1. Add. Auto compression pic. 
 2. Update. Change some functions. 
+
+## 12m22d
+
+1. remove the .so file and compress the project.
+
+
