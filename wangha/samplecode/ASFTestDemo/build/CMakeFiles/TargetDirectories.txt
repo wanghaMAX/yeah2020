@@ -1,3 +1,0 @@
-/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles/rebuild_cache.dir
-/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles/arcsoft_face_engine_test.dir
-/home/wangha/docu/git/fwwb2020/wangha/samplecode/ASFTestDemo/build/CMakeFiles/edit_cache.dir
