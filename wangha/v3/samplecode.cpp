@@ -14,6 +14,7 @@
 #include <opencv2/highgui.hpp>
 
 using namespace std;
+using namespace cv;
 
 //从开发者中心获取APPID/SDKKEY(以下均为假数据，请替换)
 #define APPID "5RromRthBqpK9JCZBS7qJ31vVjrGSiTcTrrrs6JSAdsA"
@@ -112,14 +113,14 @@ void GetWidthHeight(char * picPath, int * width, int * height){
     *height = img.rows;
 }
 
-void GetWidthHeight(cv::Mat img, int * width, int * height){
-    *width = img.cols;
-    *height = img.rows;
+void GetWidthHeight(cv::Mat img, int& width, int& height){
+    width = img.cols;
+    height = img.rows;
 }
 
 cv::Mat Autocutpic(cv::Mat img){
     int width, height;
-    GetWidthHeight(img, &width, &height);
+    GetWidthHeight(img, width, height);
     width = width - width%4;
     height = height - height%4;
     std::cout << width << " " << height ;
@@ -143,6 +144,30 @@ void Drawrectangle(cv::Mat img, int top, int bottom, int left, int right){
     Drawline(img, cv::Point(left, bottom), cv::Point(right, bottom));
     Drawline(img, cv::Point(left, top), cv::Point(left, bottom));
     Drawline(img, cv::Point(right, top), cv::Point(right, bottom));
+}
+
+void opencvRGB2NV21(cv::Mat Img, char* outfile){
+    int buflen = (int)(Img.rows * Img.cols * 3 / 2);
+    unsigned char* pYuvBuf = new unsigned char[buflen];
+    Mat OpencvYUV;
+    FILE* fout = fopen(outfile, "wb");
+    cvtColor(Img, OpencvYUV, CV_BGR2YUV_YV12);
+    memcpy(pYuvBuf, OpencvYUV.data, buflen*sizeof(unsigned char));
+    fwrite(pYuvBuf, buflen*sizeof(unsigned char), 1, fout);
+    fclose(fout);
+}
+
+
+void opencvRGB2NV21(string infile, char* outfile){
+    Mat Img = cv::imread(infile);
+    int buflen = (int)(Img.rows * Img.cols * 3 / 2);
+    unsigned char* pYuvBuf = new unsigned char[buflen];
+    Mat OpencvYUV;
+    FILE* fout = fopen(outfile, "wb");
+    cvtColor(Img, OpencvYUV, CV_BGR2YUV_YV12);
+    memcpy(pYuvBuf, OpencvYUV.data, buflen*sizeof(unsigned char));
+    fwrite(pYuvBuf, buflen*sizeof(unsigned char), 1, fout);
+    fclose(fout);
 }
 
 int main()
@@ -201,12 +226,17 @@ int main()
 	FILE* fp1 = fopen(picPath1, "rb");
 	
 	//可见光图像 NV21格式裸数据
-	char* picPath2 = "../images/1.yuv";
+	char* picPath2 = "../images/1.bmp";
+    char* picPath2_tmp = "../images/1.yuv";
+    Mat img2 = imread(picPath2);
 	int Width2 = 640;
 	int Height2 = 480;
+    GetWidthHeight(img2, Width2, Height2);
+    img2 = Autocutpic(img2);
+    opencvRGB2NV21(img2, picPath2_tmp);
 	int Format2 = ASVL_PAF_NV21;
 	MUInt8* imageData2 = (MUInt8*)malloc(Height1*Width1*3/2);
-	FILE* fp2 = fopen(picPath2, "rb");
+	FILE* fp2 = fopen(picPath2_tmp, "rb");
 	
 	//红外图像 NV21格式裸数据
 	char* picPath3 = "../images/640x480_3.NV21";
@@ -282,6 +312,9 @@ int main()
 			SingleDetectedFaces.faceRect.right = detectedFaces2.faceRect[0].right;
 			SingleDetectedFaces.faceRect.bottom = detectedFaces2.faceRect[0].bottom;
 			SingleDetectedFaces.faceOrient = detectedFaces2.faceOrient[0];
+
+            Drawrectangle(img2, SingleDetectedFaces.faceRect.top, SingleDetectedFaces.faceRect.bottom, SingleDetectedFaces.faceRect.left, SingleDetectedFaces.faceRect.right);
+            imwrite("out.jpg", img2);
 			
 			res = ASFFaceFeatureExtractEx(handle, &offscreen2, &SingleDetectedFaces, &feature2);
 			if (res != MOK)
