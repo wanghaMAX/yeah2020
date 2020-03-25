@@ -1,0 +1,62 @@
+@charset "gb2312";
+/*overall.css by 尔今 erx@qq.com*/
+*{padding:0px;margin:0px;font-family:Verdana, Arial, Helvetica, sans-serif;}
+ul{list-style:none;}
+img{border:0px;}
+body{color:#666;font-size:12px;font-family:宋体;background-color:#fff;}
+input,select{vertical-align:middle;}
+a{color:#000;text-decoration: none;}
+a:hover{color:#f33;text-decoration: underline;}
+.cl{clear:both;}
+.b{font-weight:bold;}
+.a_ct{text-align:center;}
+.a_rt{text-align:right;}
+.mgat{margin:0 auto;}
+.of{overflow:hidden;}
+.f14{font-size:14px;}
+.heise{color:#000;}
+.baise{color:#FFF;}
+.baise a{color:#FFF;}
+.huangse a{color:#FFC;}
+.hese a{color:#C63;}
+.lvse a{color:#099;}
+.lanse{color:#0CF;}
+.lanse a{color:#0CF;}
+.huise a{color:#666;}
+.heise a{color:#000;}
+.hongse{color:#C30;}
+.hongse a{color:#F30;}
+.fushia a{color:#F0F;}
+.rose a{color:#CF055F;}
+.rose{color:#CF055F;}
+.mbox{width:960px;}
+.mgtop3{margin-top:3px;}
+.mgtop5{margin-top:5px;}
+.ti_mr{display:inline;margin-left:300px;}
+.ti_mr2{display:inline;margin-left:260px;}
+/*头尾*/
+#topnav{height:30px;background:url(../images/index_bg.gif) 0 0 repeat-x;}
+.tn_left{float:left;width:300px;padding:6px 0 0 15px;}
+.tn_rt{float:right;padding:6px 15px 0 0;}
+#lgbn{height:68px;}
+#lgbn ul{float:right;line-height:20px;padding:6px 10px 0 0;}
+#lgbn ul li{width:60px;padding:0 0 0 20px;}
+.t01{background:url(../images/index_bg.gif) 0 -179px no-repeat;}
+.t02{background:url(../images/index_bg.gif) -165px -195px no-repeat;}
+.t03{background:url(../images/index_bg.gif) 0 -212px no-repeat;}
+.tn_adbox{display:inline;float:left;height:60px;padding:4px 0 4px 0;}
+.tn_adbox img{margin-left:8px;}
+.vlogo{float:left;width:260px;height:68px;}
+#topline{height:25px;background:#D03373 url(../images/index_bg.gif) 0 -40px repeat-x;}
+.tl_left{float:left;width:500px;padding:5px 0 0 12px;}
+.tl_rt{float:right;height:20px;background:url(../images/index_bg.gif) right -65px no-repeat;padding:5px 38px 0 0;}
+.tl_rt li{float:left;padding:2px 0 0 15px;}
+#btbox{line-height:26px;border-top:#DDD 1px solid;padding:10px 0 20px 0;}
+/*-友链-*/
+.flink_ti{float:left;width:958px;height:24px;border:#FBA7CE 1px solid;border-bottom:none;background:url(../images/index_bg.gif) 0 -99px repeat-x;}
+.flink_ti span{display:block;float:left;padding:5px 10px 0 10px;}
+.fl{float:left;padding:5px 0 5px 0;}
+.flink_pic li{float:left;padding:5px 4px 0 4px;}
+.flink_list li{float:left;height:14px;line-height:14px;white-space:nowrap;padding:4px 4px 4px 4px;}
+
+

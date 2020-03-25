@@ -1,0 +1,75 @@
+@import url('overall.css');
+/*main.css by 尔今 erx@qq.com*/
+/*-首页上-*/
+#top_bigadbox{padding:3px 0 3px 0;}
+.ad_v{float:left;width:956px;border:#DDD 1px solid;}
+#ad_v1{display:inline;height:60px;padding:3px 0 3px 2px;}
+#ad_v1 img{margin-left:6px;}
+#ad_v2{height:80px;padding:3px 0 3px 2px;}
+.v2_list{padding:0 0 0 3px;}
+.v2_list li{float:left;width:180px;line-height:20px;padding:0 5px 0 5px;white-space:nowrap;overflow:hidden;}
+#ad_v3{float:left;width:930px;height:90px;border:#DDD 1px solid;padding:5px 14px 5px 14px;}
+/*-主体-*/
+#index_left{float:left;width:220px;padding:3px 0 0 0;}
+#index_rt{float:right;width:735px;padding:3px 0 0 0;}
+.leftbox{float:left;width:216px;border:#DDD 1px solid;}
+#tabbox{float:left;text-align:left;width:215px;}
+.tabtopmenu{position:relative;width:216px;height:26px;text-align:left;overflow:hidden;}
+.tabmainbox{width:216px;height:385px;margin-top:-1px;}
+#menu1{width:214px;position:absolute;top:1px;left:1px;z-index:1;}
+#menu1 li{float:left;display:block;cursor:pointer;width:107px;text-align:center;height:20px;background:url(../images/index_bg.gif) 0 -125px no-repeat;padding:5px 0 0 0;}
+#menu1 li.hover{font-weight:bold;background:url(../images/index_bg.gif) 0 -100px no-repeat;}
+#main1{background:url(../images/index_bg.gif) 0 -284px repeat-x;padding:0 5px 0 5px;}
+#main1 table{display:none;}
+#main1 table.block{display:block;}
+#main1 td{height:22px;}
+.tab_mid{width:115px;padding-left:10px;}
+.sort_title{float:left;width:200px;height:20px;background:#FFECF5 url(../images/index_bg.gif) -80px -149px no-repeat;padding:5px 0 0 16px;}
+.sort_adbox{float:left;width:180px;height:60px;padding:6px 18px 5px 18px;}
+.st_tr{width:180px;border-top:#FF70B0 1px solid;padding-top:10px;}
+*html .st_tr{padding-top:7px;}
+.sort_list{padding:6px 18px 6px 18px;}
+.sort_list table{float:left;width:180px;}
+.sort_list td{height:24px;}
+.rt_box{float:left;width:733px;border:#DDD 1px solid;}
+.rt_title{float:left;width:733px;height:25px;background:url(../images/index_bg.gif) 0 -99px repeat-x;}
+.rt_title span{display:block;float:left;}
+.rt_title .ti{height:20px;padding:5px 10px 0 10px;}
+.rt_title .info{height:20px;padding:5px 0 0 30px;}
+.rt_list{float:left;width:723px;padding:6px 0 6px 10px;}
+.rt_list li{display:inline;float:left;width:136px;height:22px;line-height:26px;margin-left:5px;text-align:center;border-bottom:#DDD 1px dotted;white-space:nowrap;overflow:hidden;}
+.rt_piclist{float:left;height:105px;padding-left:10px;}
+.rt_piclist li{display:inline;float:left;width:100px;height:95px;margin-right:8px;border:#EFEFEF 1px solid;padding:5px 5px 5px 5px;}
+.rt_piclist img{width:100px;height:75px;}
+.rt_piclist span{display:block;width:100px;white-space:nowrap;padding-top:5px;overflow:hidden;}
+.rt_adbox{float:left;width:735px;height:75px;padding:8px 0 0 0;}
+.rt_adbox .left{float:left;width:180px;height:60px;border:#8CB4E7 1px solid;padding:6px 0 7px 0;overflow:hidden;}
+.rt_adbox .right{float:right;height:75px;}
+.link_list{float:left;padding:5px 0 0 0;}
+.link_list table{width:733px;}
+.link_list td{height:22px;padding-left:10px;}
+.links{width:580px;}
+.links a{display:inline;margin-right:12px;}
+.vtr_bg{background-color:#FFEBF6;}
+.v_line td{border-bottom:#FF70B0 1px solid;}
+/*-主体下-*/
+#mid_adbox{height:90px;padding:6px 1px 6px 1px;}
+#mid_adbox img{width:460px;height:90px;padding:0 8px 0 8px;}
+.topby_ti{height:20px;background:url(../images/index_bg.gif) 0 -99px repeat-x;border-left:#FFC 1px solid;padding:5px 0 0 15px;}
+.topby_add{padding:2px 0 0 25px;}
+.topby_add li{height:24px;line-height:24px;}
+.topby_time{float:left;width:245px;margin-left:-1px;background:url(../images/index_bg.gif) 0 -259px repeat-x;}
+.topby_time table{width:245px;border-left:#FBA7CE 1px solid;}
+.topby_time td{height:22px;padding:0 0 0 5px;}
+.topby_more{background-color:#FECDE3;}
+#more_fct{background-color:#FFECF5;padding:3px 1px 0 1px;}
+#more_fct td{height:26px;}
+#more_fct .title{padding:0 10px 0 0;}
+#more_fct .title span{display:block;background:url(../images/index_bg.gif) 0 -100px no-repeat;padding:3px 6px 3px 6px;}
+.fct{width:820px;}
+.bt_dashed{border-bottom:#FBA7CE 1px dashed;}
+.fct a{display:inline;margin-right:12px;}
+#sx_box{width:956px;border-top:#FBA7CE 1px solid;background-color:#FFF;padding:15px 0 15px 0;}
+#sx_box label{display:inline;margin-left:15px;}
+
+

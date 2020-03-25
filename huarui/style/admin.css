@@ -1,0 +1,38 @@
+@import url('overall.css');
+/*admin.css by 尔今 erx@qq.com*/
+a:hover{text-decoration:none;}
+table{border-collapse:collapse;}
+#topbox{width:900px;background-color:#FF70B0;padding:8px 0 0 15px;}
+#topbox .title{color:#C06;font-size:24px;font-family:黑体;letter-spacing:3px;padding-bottom:10px;}
+#topbox .info{color:#FFF;padding-left:80px;}
+#topbox a{color:#F30;margin-left:10px;background-color:#FFF;}
+#topbox a:hover{background-color:#FF6;}
+#leftmenu{width:120px;background-color:#FFEBF6;padding:6px 0 5px 10px;}
+#leftmenu a{display:block;text-align:center;margin-top:8px;padding:3px 0 2px 0;}
+#leftmenu a:hover{color:#C06;border:1px #FF70B0 solid;background-color:#FBA7CE;}
+.yiji a{color:#FFC;width:120px;font-size:14px;font-weight:bold;border:1px #FFF solid;background-color:#FF70B0;}
+.erji a{color:#069;width:100px;margin-left:5px;border:1px #F69 dotted;background-color:#EEFDFB;}
+#minfo{padding:15px 0 0 10px;}
+#minfo .title{color:#09F;}
+#minfo ul{padding:20px 0 80px 0;}
+#minfo li{padding:8px 0 5px 10px;}
+.logbox{border:#FBA7CE 1px solid;}
+.logbox th, td{padding:8px 0;}
+.logbox .title{color:#c06;background-color:#FFEBF6;}
+.log_p{line-height:120px;}
+/*通用结束*/
+.vbt{width:600px;padding:8px 0 0 0;}
+.fanye{width:680px;border-bottom:#FBA7CE 1px solid;padding:20px 0 5px 0;}
+.fanye a{display:inline;margin-left:12px;border:#FBA7CE 1px solid;padding:2px 10px 2px 10px;}
+/*子页*/
+.addurl{margin:12px 0 0 10px;}
+.addurl td{padding:8px 0 6px 10px;}
+.tb_title{color:#F06;border-bottom:#F06 1px solid;}
+.tr_title{color:#F06;font-weight:bold;background-color:#FFECF5;}
+.urlist{margin:12px 0 0 20px;border-top:#FBA7CE 1px solid;border-left:#FBA7CE 1px solid;}
+.urlist td{border-bottom:#FBA7CE 1px solid;border-right:#FBA7CE 1px solid;padding:8px 0 6px 5px;}
+#wel_word{width:780px;font-size:18px;font-family:幼圆;border-bottom:#FBA7CE 1px solid;padding:30px 0 5px 0;}
+#wel_list{width:780px;padding:20px 0 10px 60px;}
+#wel_list li{padding:8px 0;}
+
+
